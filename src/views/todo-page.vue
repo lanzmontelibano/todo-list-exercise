@@ -1,36 +1,39 @@
 <template>
   <input-todo @new-todo="addNewTodo"/>
-  <mark-unmark-all @mark-all-done="markAllDone" @unmark-all-done="unMarkAllDone"/>
+  <mark-unmark-all 
+    @mark-all-done="markAllDone" 
+    @unmark-all-done="unMarkAllDone"
+  />
   <div class="todoList">
-      <draggable 
-        v-model="todoTasks" 
-        @start="true" 
-        @end="false" 
-        item-key="index"
-      >
-        <template #item="{element, index}">
-          <div v-if="element.editing" class="todoItem">
-            <update-todo 
-              :task-index="index" 
-              @update-todo="updateTodo" 
-              @do-edit="doEdit"
-            />
-          </div>
-          <div 
-            v-else 
-            class="todoItem" 
-            :class="{ todoItemDone: element.done }"
-          >
-            <todo-item 
-              :itemElement="element" 
-              :itemIndex="index" 
-              @toggle-done="toggleDone" 
-              @remove-todo="removeTodo" 
-              @do-edit="doEdit"
-            />
-          </div> 
-        </template>
-      </draggable>
+    <draggable 
+      v-model="todoTasks" 
+      @start="true" 
+      @end="false" 
+      item-key="index"
+    >
+      <template #item="{element, index}">
+        <div v-if="element.editing" class="todoItem">
+          <update-todo 
+            :task-index="index" 
+            @update-todo="updateTodo" 
+            @do-edit="doEdit"
+          />
+        </div>
+        <div 
+          v-else 
+          class="todoItem" 
+          :class="{ todoItemDone: element.done }"
+        >
+          <todo-item 
+            :itemElement="element" 
+            :itemIndex="index" 
+            @toggle-done="toggleDone" 
+            @remove-todo="removeTodo" 
+            @do-edit="doEdit"
+          />
+        </div> 
+      </template>
+    </draggable>
   </div>
 </template>
 

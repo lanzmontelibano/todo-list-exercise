@@ -4,7 +4,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 emit: ['mark-all-done', 'unmark-all-done'],
 
     setup(props, {emit}){
@@ -20,5 +22,5 @@ emit: ['mark-all-done', 'unmark-all-done'],
         unmarkAllDone,
         }
     }    
-}
+})
 </script>
