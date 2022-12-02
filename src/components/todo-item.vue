@@ -1,8 +1,8 @@
 <template >
     <h3 :class="{ done: props.itemElement.done }">{{ props.itemElement.content }}</h3>
-              <button @click="toggleDone(itemIndex)">Mark</button>
-              <button @click="removeTodo(itemIndex)">Remove</button>
-              <button v-if="!props.itemElement.done" @click="doEdit(itemIndex)">Edit</button>
+              <button @click="toggleDone(itemID)">Mark</button>
+              <button @click="removeTodo(itemID)">Remove</button>
+              <button v-if="!props.itemElement.done" @click="doEdit(itemID)">Edit</button>
 </template>
 
 <script lang="ts">
@@ -15,8 +15,9 @@ export default defineComponent({
         itemElement: {
             type: Object as PropType<ITodoTasks>,
             required: true,
+            default: null
         },
-        itemIndex: {
+        itemID: {
             type: Number,
             required: true,
         } 
