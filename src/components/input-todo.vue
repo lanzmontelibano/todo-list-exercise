@@ -1,7 +1,7 @@
 <template>
     <div class="inputTodo">
         <h1>To do list</h1>
-          <label>Add Item </label>
+          <label>Add New Item </label>
           <input 
             v-model="newTodo"
             name="addTodo"
