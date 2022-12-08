@@ -9,7 +9,7 @@
       v-model="todoTasks" 
       @start="true" 
       @end="false" 
-      item-key="index"
+      item-key="element.id"
     >
       <template #item="{element, index}">
         <div v-if="element.editing" class="todoItem">
@@ -26,7 +26,7 @@
         >
           <todo-item 
             :itemElement="element" 
-            :itemIndex="index" 
+            :itemID="index" 
             @toggle-done="toggleDone" 
             @remove-todo="removeTodo" 
             @do-edit="doEdit"

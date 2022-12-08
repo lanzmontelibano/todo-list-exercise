@@ -1,9 +1,7 @@
-import { ref } from 'vue'
-import ITodoTasks from '@/types/todoTasks'
+import { useData } from './use-data'
 
 export function useTodo(){
-    const updatedTodo = ref('')
-    const todoTasks = ref<ITodoTasks[]>([])
+    const { todoTasks } = useData()
 
     function doEdit(index: number){
       todoTasks.value[index].editing = !todoTasks.value[index].editing
@@ -24,7 +22,6 @@ export function useTodo(){
     function updateTodo( w: string, index: number) {
       todoTasks.value[index].content = w
       todoTasks.value[index].editing = !todoTasks.value[index].editing
-      updatedTodo.value = ''
     }
 
     function toggleDone(index: number){
@@ -41,7 +38,6 @@ export function useTodo(){
     
     return {
       todoTasks,
-      updatedTodo,
       addNewTodo,
       removeTodo,
       toggleDone,
